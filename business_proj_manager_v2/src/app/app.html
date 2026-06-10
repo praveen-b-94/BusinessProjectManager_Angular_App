@@ -1,0 +1,25 @@
+<div class="shell">
+  <aside class="sidenav">
+    <div class="brand">
+      <span class="brand-mark">
+        <mat-icon>diamond</mat-icon>
+      </span>
+      <span class="brand-name">RubyFlow</span>
+    </div>
+
+    <nav>
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="active">
+          <mat-icon>{{ link.icon }}</mat-icon>
+          <span class="nav-label">{{ link.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="sidenav-footer">Angular v{{ angularVersion }}</div>
+  </aside>
+
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>

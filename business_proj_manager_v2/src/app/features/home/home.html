@@ -1,0 +1,29 @@
+<section class="hero">
+  <div class="hero-copy">
+    <h1>Welcome to your project</h1>
+    <p>
+      Track work across the board, manage the people on your team, and assign
+      teammates to projects — all in one place.
+    </p>
+    <div class="hero-actions">
+      <a matButton="filled" routerLink="/board">
+        <mat-icon>view_kanban</mat-icon>
+        Open task board
+      </a>
+      <a matButton="outlined" routerLink="/people">
+        <mat-icon>group</mat-icon>
+        Manage people
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Workspace summary">
+  @for (stat of stats(); track stat.label) {
+    <a class="stat-card" [routerLink]="stat.link">
+      <mat-icon>{{ stat.icon }}</mat-icon>
+      <span class="stat-value">{{ stat.value }}</span>
+      <span class="stat-label">{{ stat.label }}</span>
+    </a>
+  }
+</section>

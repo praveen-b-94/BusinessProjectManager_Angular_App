@@ -1,0 +1,73 @@
+<header class="page-header">
+  <div>
+    <h1>Projects</h1>
+    <p>Drag a person into a project to assign them — or back to the pool to unassign.</p>
+  </div>
+</header>
+
+<div class="assignment-layout" cdkDropListGroup>
+  <section class="pool">
+    <h2>
+      <mat-icon>group</mat-icon>
+      Available people
+      <span class="count">{{ projectStore.unassigned().length }}</span>
+    </h2>
+
+    <div
+      class="pool-list"
+      cdkDropList
+      [cdkDropListData]="poolId"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (person of projectStore.unassigned(); track person.id) {
+        <article class="person-chip" cdkDrag [cdkDragData]="person">
+          <span class="avatar small" [class]="'hue-' + avatarHue(person)">{{ initials(person) }}</span>
+          <span class="chip-text">
+            <strong>{{ fullName(person) }}</strong>
+            <small>{{ person.jobTitle }}</small>
+          </span>
+          <mat-icon class="grip">drag_indicator</mat-icon>
+        </article>
+      } @empty {
+        <div class="empty">Everyone is assigned to a project 🎉</div>
+      }
+    </div>
+  </section>
+
+  <section class="projects">
+    @for (project of rosters(); track project.id) {
+      <article class="project-card">
+        <header>
+          <span class="project-icon">
+            <mat-icon>{{ project.icon }}</mat-icon>
+          </span>
+          <div>
+            <h2>{{ project.name }}</h2>
+            <p>{{ project.description }}</p>
+          </div>
+          <span class="count">{{ project.members.length }}</span>
+        </header>
+
+        <div
+          class="member-list"
+          cdkDropList
+          [cdkDropListData]="project.dropData"
+          (cdkDropListDropped)="drop($event)"
+        >
+          @for (person of project.members; track person.id) {
+            <article class="person-chip" cdkDrag [cdkDragData]="person">
+              <span class="avatar small" [class]="'hue-' + avatarHue(person)">{{ initials(person) }}</span>
+              <span class="chip-text">
+                <strong>{{ fullName(person) }}</strong>
+                <small>{{ person.email }}</small>
+              </span>
+              <mat-icon class="grip">drag_indicator</mat-icon>
+            </article>
+          } @empty {
+            <div class="empty">Drop teammates here</div>
+          }
+        </div>
+      </article>
+    }
+  </section>
+</div>

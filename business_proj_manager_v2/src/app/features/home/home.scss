@@ -1,0 +1,83 @@
+.hero {
+  border-radius: 24px;
+  padding: 48px 40px;
+  background:
+    radial-gradient(1200px 400px at 110% -20%, color-mix(in srgb, var(--mat-sys-tertiary) 35%, transparent), transparent),
+    linear-gradient(135deg, var(--mat-sys-primary), color-mix(in srgb, var(--mat-sys-primary) 55%, var(--mat-sys-tertiary)));
+  color: var(--mat-sys-on-primary);
+}
+
+.hero-copy {
+  max-width: 560px;
+
+  h1 {
+    margin: 0 0 12px;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    margin: 0 0 28px;
+    font-size: 1.05rem;
+    opacity: 0.92;
+    line-height: 1.6;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  a[matButton='filled'] {
+    background: var(--mat-sys-on-primary);
+    color: var(--mat-sys-primary);
+  }
+
+  a[matButton='outlined'] {
+    color: var(--mat-sys-on-primary);
+    border-color: color-mix(in srgb, var(--mat-sys-on-primary) 55%, transparent);
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--mat-sys-surface);
+  border: 1px solid var(--mat-sys-outline-variant);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 150ms ease, transform 150ms ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  mat-icon {
+    color: var(--mat-sys-primary);
+    margin-bottom: 8px;
+  }
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--mat-sys-on-surface-variant);
+  font-size: 0.875rem;
+}

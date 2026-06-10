@@ -1,0 +1,32 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+
+  mat-form-field {
+    flex: 1;
+  }
+}
+
+.form-error {
+  margin: -8px 0 16px;
+  font-size: 0.78rem;
+  color: var(--mat-sys-error);
+}
+
+.delete-button {
+  color: var(--mat-sys-error);
+}
+
+.spacer {
+  flex: 1;
+}

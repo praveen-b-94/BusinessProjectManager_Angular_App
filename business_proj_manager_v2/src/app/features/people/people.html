@@ -1,0 +1,53 @@
+<header class="page-header">
+  <div>
+    <h1>People</h1>
+    <p>Your project team members.</p>
+  </div>
+  <button matButton="filled" (click)="openPersonDialog()">
+    <mat-icon>person_add</mat-icon>
+    Add person
+  </button>
+</header>
+
+<div class="people-grid">
+  @for (person of peopleStore.people(); track person.id) {
+    <article class="person-card">
+      <div class="person-card-actions">
+        <button matIconButton aria-label="Edit person" (click)="openPersonDialog(person)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button matIconButton aria-label="Remove person" (click)="removePerson(person)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <span class="avatar large" [class]="'hue-' + avatarHue(person)">{{ initials(person) }}</span>
+      <h2>{{ fullName(person) }}</h2>
+      <p class="job-title">{{ person.jobTitle }}</p>
+
+      <dl class="details">
+        <div>
+          <mat-icon>mail</mat-icon>
+          <dd>{{ person.email }}</dd>
+        </div>
+        <div>
+          <mat-icon>call</mat-icon>
+          <dd>{{ person.phone }}</dd>
+        </div>
+        <div>
+          <mat-icon>location_on</mat-icon>
+          <dd>{{ person.officeLocation }}</dd>
+        </div>
+        <div>
+          <mat-icon>domain</mat-icon>
+          <dd>{{ person.department }}</dd>
+        </div>
+      </dl>
+    </article>
+  } @empty {
+    <div class="empty">
+      <mat-icon>group_off</mat-icon>
+      <p>No team members yet. Add the first one!</p>
+    </div>
+  }
+</div>

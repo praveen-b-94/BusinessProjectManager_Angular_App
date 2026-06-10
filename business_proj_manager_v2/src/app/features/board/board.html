@@ -1,0 +1,70 @@
+<header class="page-header">
+  <div>
+    <h1>Task Board</h1>
+    <p>Drag tasks between columns to update their status.</p>
+  </div>
+  <button matButton="filled" (click)="openTaskDialog()">
+    <mat-icon>add</mat-icon>
+    New task
+  </button>
+</header>
+
+<div class="board" cdkDropListGroup>
+  @for (column of columns(); track column.value) {
+    <section class="column" [attr.data-status]="column.value">
+      <header class="column-header">
+        <mat-icon>{{ column.icon }}</mat-icon>
+        <h2>{{ column.label }}</h2>
+        <span class="count">{{ column.tasks.length }}</span>
+      </header>
+
+      <div
+        class="column-body"
+        cdkDropList
+        [cdkDropListData]="column.value"
+        (cdkDropListDropped)="drop($event)"
+      >
+        @for (task of column.tasks; track task.id) {
+          <article class="task-card" cdkDrag [cdkDragData]="task" (dblclick)="openTaskDialog(task)">
+            <div class="task-top">
+              <span class="task-id">#{{ task.id }}</span>
+              <button
+                matIconButton
+                class="task-edit"
+                aria-label="Edit task"
+                (click)="openTaskDialog(task)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            <h3>{{ task.title }}</h3>
+            @if (task.description) {
+              <p class="task-desc">{{ task.description }}</p>
+            }
+            <div class="task-meta">
+              @if (assignee(task); as person) {
+                <span class="assignee">
+                  <span class="avatar small" [class]="'hue-' + avatarHue(person)">{{ initials(person) }}</span>
+                  {{ fullName(person) }}
+                </span>
+              } @else {
+                <span class="assignee unassigned">
+                  <mat-icon>person_off</mat-icon>
+                  Unassigned
+                </span>
+              }
+              @if (task.endDate) {
+                <span class="due">
+                  <mat-icon>event</mat-icon>
+                  {{ task.endDate | date: 'MMM d' }}
+                </span>
+              }
+            </div>
+          </article>
+        } @empty {
+          <div class="empty">No tasks here yet</div>
+        }
+      </div>
+    </section>
+  }
+</div>

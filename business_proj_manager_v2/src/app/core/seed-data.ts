@@ -1,0 +1,81 @@
+import { Person, Project, Task } from './models';
+
+export const SEED_PEOPLE: Person[] = [
+  {
+    id: 1,
+    firstName: 'John',
+    lastName: 'Smith',
+    jobTitle: 'Business Analyst',
+    phone: '(301) 123-1234',
+    address: '19564 North Avenue, Reston, VA 20194',
+    email: 'john.smith@techsystems.com',
+    officeLocation: 'Reston, VA',
+    department: 'Application Operations',
+  },
+  {
+    id: 2,
+    firstName: 'Pedro',
+    lastName: 'Mendez',
+    jobTitle: 'Business Analyst',
+    phone: '(301) 123-4321',
+    address: '24353 South Avenue, McLean, VA 93475',
+    email: 'pedro.mendez@techsystems.com',
+    officeLocation: 'Reston, VA',
+    department: 'Application Operations',
+  },
+  {
+    id: 3,
+    firstName: 'Mary',
+    lastName: 'Jones',
+    jobTitle: 'Business Analyst',
+    phone: '(245) 264-9952',
+    address: '46347 West Avenue, Arlington, VA 74353',
+    email: 'mary.jones@techsystems.com',
+    officeLocation: 'Arlington, VA',
+    department: 'Infrastructure',
+  },
+  {
+    id: 4,
+    firstName: 'John',
+    lastName: 'Doe',
+    jobTitle: 'Business Analyst',
+    phone: '(410) 834-6345',
+    address: '56735 East Avenue, Columbia, MD 84523',
+    email: 'john.doe@techsystems.com',
+    officeLocation: 'Columbia, MD',
+    department: 'Application Operations',
+  },
+  {
+    id: 5,
+    firstName: 'James',
+    lastName: 'Smith',
+    jobTitle: 'Business Analyst',
+    phone: '(651) 938-7522',
+    address: '23452 Spring Valley, Boston, MA 45633',
+    email: 'james.smith@techsystems.com',
+    officeLocation: 'Boston, MA',
+    department: 'Business Management',
+  },
+];
+
+export const SEED_TASKS: Task[] = [
+  { id: 112, title: 'Update Landing page', description: 'UI Landing page needs updating', startDate: '2022-01-01', endDate: '2022-01-10', assigneeId: 4, status: 'todo' },
+  { id: 111, title: 'Design application graphics', description: 'Application needs graphics drawn in Adobe Illustrator', startDate: '2022-01-01', endDate: '2022-01-10', assigneeId: 4, status: 'todo' },
+  { id: 110, title: 'Develop Request webform', description: 'Clients need webform page in application to create a request', startDate: '2022-02-01', endDate: '2022-02-10', assigneeId: 5, status: 'in-progress' },
+  { id: 109, title: 'Conduct Regression test', description: 'Perform comprehensive end-to-end test', startDate: '2022-03-01', endDate: '2022-03-10', assigneeId: 3, status: 'in-progress' },
+  { id: 108, title: 'Set up staging environment', description: 'Stage environment needed for pre-prod deployments', startDate: '2022-01-01', endDate: '2022-01-10', assigneeId: 4, status: 'in-progress' },
+  { id: 107, title: 'Update Unit tests', description: 'Unit tests needed to reflect latest changes', startDate: '2022-02-01', endDate: '2022-02-10', assigneeId: 5, status: 'in-progress' },
+  { id: 106, title: 'Install packages', description: 'Packages need to be installed', startDate: '2022-03-01', endDate: '2022-03-10', assigneeId: 3, status: 'in-progress' },
+  { id: 105, title: 'Update page title', description: 'UI application page needs an updated title', startDate: '2022-01-01', endDate: '2022-01-10', assigneeId: 4, status: 'review' },
+  { id: 104, title: 'Fix Section 508 bugs', description: 'Non-508-compliant bugs were discovered', startDate: '2022-02-01', endDate: '2022-02-10', assigneeId: 5, status: 'review' },
+  { id: 103, title: 'Create dashboard table', description: 'UI Dashboard table is needed for admin users', startDate: '2022-03-01', endDate: '2022-03-10', assigneeId: 3, status: 'done' },
+  { id: 102, title: 'Security vulnerability patching', description: 'Critical security bugs discovered', startDate: '2022-01-01', endDate: '2022-01-10', assigneeId: 4, status: 'done' },
+  { id: 101, title: 'Set up database', description: 'Application needs database for backend', startDate: '2022-02-01', endDate: '2022-02-10', assigneeId: 5, status: 'done' },
+  { id: 100, title: 'Create Landing page', description: 'UI Landing page needs to be developed', startDate: '2022-03-01', endDate: '2022-03-10', assigneeId: 3, status: 'done' },
+];
+
+export const SEED_PROJECTS: Project[] = [
+  { id: 1, name: 'Software Development', description: 'Client-facing product engineering', icon: 'code', memberIds: [] },
+  { id: 2, name: 'Project Management', description: 'Planning, tracking and delivery', icon: 'fact_check', memberIds: [] },
+  { id: 3, name: 'Infrastructure', description: 'Environments, networks and operations', icon: 'dns', memberIds: [] },
+];
