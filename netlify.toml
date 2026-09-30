@@ -1,7 +1,7 @@
 [build]
   command = "ng build"
-  publish = "dist/your-project-name/browser"
-  
+  publish = "dist/BusinessProjectManager_Angular_App/browser"
+
 [[redirects]]
   from = "/*"
   to = "/src/app/app.html"
