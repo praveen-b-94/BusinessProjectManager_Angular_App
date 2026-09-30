@@ -2,7 +2,7 @@
 
 A small enterprise task-management app (Jira-style ALM) originally built as a grad-school
 project in 2022 on Angular 14/15, rebuilt in 2026 on **Angular 22** with current best
-practices. The original project is preserved untouched in `../business_proj_manager`.
+practices. 
 
 ## Features
 
