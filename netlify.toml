@@ -1,3 +1,7 @@
+[build]
+  command = "ng build"
+  publish = "dist/your-project-name/browser"
+  
 [[redirects]]
   from = "/*"
   to = "/src/app/app.html"
